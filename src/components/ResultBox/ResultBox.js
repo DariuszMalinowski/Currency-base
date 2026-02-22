@@ -13,10 +13,21 @@ const ResultBox = ({ from, to, amount }) => {
     return formatAmountInCurrency(amount, from);
   }, [from, to, amount]);
 
+
   const formattedAmount = useMemo(() => formatAmountInCurrency(amount, from), [amount, from]);
 
+  // 1. Obsługa błędu dla wartości ujemnych
+  if (amount < 0) {
+    return (
+      <div className={styles.result} data-testid="output">
+        Wrong value...
+      </div>
+    );
+  }
+
+  // 2. Standardowy widok (z dodanym data-testid)
   return (
-    <div className={styles.result}>
+    <div className={styles.result} data-testid="output">
       {formattedAmount} = {convertedAmount}
     </div>
   );

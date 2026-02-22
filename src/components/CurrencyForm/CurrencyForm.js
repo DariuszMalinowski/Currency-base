@@ -21,7 +21,7 @@ const CurrencyForm = ({ action }) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      // ... fragment kodu w CurrencyForm.js ...
+
 <label>
   <span>Amount:</span>
   <TextInput 
@@ -45,7 +45,6 @@ const CurrencyForm = ({ action }) => {
       <option value="USD">USD</option>
     </Select>
   </label>
-// ...
       <Button>Convert</Button>
     </form>
   );
